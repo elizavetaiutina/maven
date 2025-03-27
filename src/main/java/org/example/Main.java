@@ -53,11 +53,7 @@ public class Main {
     }
 
     public static boolean five(int a, int b) {
-        if (a + b >= 10 && a + b <= 20) {
-            return true;
-        } else {
-            return false;
-        }
+        return a + b >= 10 && a + b <= 20;
     }
 
     public static void six(int a) {
@@ -69,11 +65,7 @@ public class Main {
     }
 
     public static boolean seven(int a) {
-        if (a >= 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return a >= 0;
     }
 
     public static void eight(String str, int count) {
@@ -81,11 +73,7 @@ public class Main {
     }
 
     public static boolean nine(int year) {
-        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
-            return true;
-        } else {
-            return false;
-        }
+        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
     }
 
     public static void ten() {
