@@ -8,7 +8,7 @@ public class Product {
     private int price;
     private Boolean statusOfBooking;
 
-    Product(String title, String dateOfProduction, String fabricator, String countryOfOrigin, int price, Boolean statusOfBooking) {
+    public Product(String title, String dateOfProduction, String fabricator, String countryOfOrigin, int price, Boolean statusOfBooking) {
         this.title = title;
         this.dateOfProduction = dateOfProduction;
         this.fabricator = fabricator;
