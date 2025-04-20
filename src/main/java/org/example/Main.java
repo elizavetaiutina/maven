@@ -1,8 +1,11 @@
 package org.example;
 //import java.util.Arrays;
 
+import java.util.concurrent.ConcurrentLinkedQueue;
+
 public class Main {
     public static void main(String args[]) {
+        /////////// TASK 1
         Dish dish = new Dish(19);
         dish.getinfoDish();
 
@@ -21,5 +24,13 @@ public class Main {
         dog.run(-1);
 
         Animal.getCountAnimals();
+
+        /////////// TASK 2
+        Circle circle = new Circle(5, "red", "black");
+        circle.getInfoTheFigure();
+        Rectangle rectangle = new Rectangle(2, 3, "white", "blue");
+        rectangle.getInfoTheFigure();
+        Triangle triangle = new Triangle(5, 3, 5, "pink", "yellow");
+        triangle.getInfoTheFigure();
     }
 }
