@@ -6,6 +6,10 @@ public class Animal {
     int maxDistanceOfSwim;
     boolean isSwiming;
 
+    static int countAnimals = 0;
+    static int countCats = 0;
+    static int countDogs = 0;
+
     public Animal(String name, int maxDistanceOfRun, int maxDistanceOfSwim, boolean isSwiming) {
         this.name = name;
         this.maxDistanceOfRun = maxDistanceOfRun;
@@ -33,6 +37,11 @@ public class Animal {
         } else {
             System.out.println(name + " не смог проплыть " + distance + "м, он может проплыть максимум " + maxDistanceOfSwim + "м.");
         }
+    }
+
+    public static void getCountAnimals() {
+        countAnimals = countCats + countDogs;
+        System.out.println("Всего животных: " + countAnimals + ".\nИз них котов: " + countCats + ".\nИз них котов: " + countDogs + ".");
     }
 }
 
