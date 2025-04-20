@@ -41,7 +41,7 @@ public class Animal {
 
     public static void getCountAnimals() {
         countAnimals = countCats + countDogs;
-        System.out.println("Всего животных: " + countAnimals + ".\nИз них котов: " + countCats + ".\nИз них котов: " + countDogs + ".");
+        System.out.println("Всего животных: " + countAnimals + ".\nИз них котов: " + countCats + ".\nИз них собак: " + countDogs + ".");
     }
 }
 
