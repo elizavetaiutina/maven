@@ -28,8 +28,10 @@ public class Main {
         /////////// TASK 2
         Circle circle = new Circle(5, "red", "black");
         circle.getInfoTheFigure();
+
         Rectangle rectangle = new Rectangle(2, 3, "white", "blue");
         rectangle.getInfoTheFigure();
+
         Triangle triangle = new Triangle(5, 3, 5, "pink", "yellow");
         triangle.getInfoTheFigure();
     }
