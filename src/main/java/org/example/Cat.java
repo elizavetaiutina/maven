@@ -1,7 +1,7 @@
 package org.example;
 
 public class Cat extends Animal {
-    boolean isWellFed = false;
+    private boolean isWellFed = false;
 
     public Cat(String name) {
         super(name, 200, 0, false);

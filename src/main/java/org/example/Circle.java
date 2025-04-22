@@ -1,9 +1,9 @@
 package org.example;
 
 public class Circle implements Figure {
-    int radius;
-    String backgroundcolor;
-    String borderColor;
+    private int radius;
+    private String backgroundcolor;
+    private String borderColor;
 
     public Circle(int radius, String backgroundcolor, String borderColor) {
         this.radius = radius;

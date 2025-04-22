@@ -1,10 +1,10 @@
 package org.example;
 
 public class Rectangle implements Figure {
-    int a;
-    int b;
-    String backgroundcolor;
-    String borderColor;
+    private int a;
+    private int b;
+    private String backgroundcolor;
+    private String borderColor;
 
     public Rectangle(int a, int b, String backgroundcolor, String borderColor) {
         this.a = a;

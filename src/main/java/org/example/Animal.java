@@ -1,14 +1,14 @@
 package org.example;
 
 public class Animal {
-    String name;
-    int maxDistanceOfRun;
-    int maxDistanceOfSwim;
-    boolean isSwiming;
+    protected String name;
+    protected int maxDistanceOfRun;
+    protected int maxDistanceOfSwim;
+    protected boolean isSwiming;
 
-    static int countAnimals = 0;
-    static int countCats = 0;
-    static int countDogs = 0;
+    protected static int countAnimals = 0;
+    protected static int countCats = 0;
+    protected static int countDogs = 0;
 
     public Animal(String name, int maxDistanceOfRun, int maxDistanceOfSwim, boolean isSwiming) {
         this.name = name;

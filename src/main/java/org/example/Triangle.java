@@ -1,11 +1,11 @@
 package org.example;
 
 public class Triangle implements Figure {
-    int a;
-    int b;
-    int c;
-    String backgroundcolor;
-    String borderColor;
+    private int a;
+    private int b;
+    private int c;
+    private String backgroundcolor;
+    private String borderColor;
 
     public Triangle(int a, int b, int c, String backgroundcolor, String borderColor) {
         this.a = a;

@@ -1,7 +1,7 @@
 package org.example;
 
 public class Dish {
-    int count;
+    public int count;
 
     public Dish(int count) {
         this.count = count;
