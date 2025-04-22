@@ -7,13 +7,18 @@ public class Main {
         String[][] array = new String[][]{{"1", "2", "3", "4"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}};
         try {
             try {
+                System.out.println("\nЗАДАНИЕ 1-3");
                 check(array);
+                System.out.println("\nЗАДАНИЕ 4");
+                checkIndexOutOfBounds(array);
                 System.out.println("Двумерный массив имеет размер 4х4");
             } catch (MyArraySizeException e) {
                 System.out.println("Массив имеет другой размер !");
             }
         } catch (MyArrayDataException e) {
             System.out.println("В ячейке " + "[" + e.i + "]" + "[" + e.j + "]" + " лежат неверные данные");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Попытка доступа к массиву по недопустимому индексу ! " + e.getMessage());
         }
     }
 
@@ -34,6 +39,14 @@ public class Main {
                 }
             }
         }
-        System.out.println("Сумма значений в ячейках = " + sum);
+        System.out.println("Сумма значений в ячейках массива = " + sum);
+    }
+
+    public static void checkIndexOutOfBounds(String[][] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = -1; j < arr.length; j++) {
+                System.out.println(arr[i][j]);
+            }
+        }
     }
 }
