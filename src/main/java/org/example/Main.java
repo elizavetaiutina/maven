@@ -1,24 +1,38 @@
 package org.example;
 //import java.util.Arrays;
 
+import java.util.concurrent.ConcurrentLinkedQueue;
+
 public class Main {
     public static void main(String args[]) {
-        Product[] productsArray = new Product[5];
-        productsArray[0] = new Product("Футболка", "02.04.2024", "Текстильная фабрика", "Китай", 1000, true);
-        productsArray[1] = new Product("Толстовка", "02.05.2023", "Текстильная фабрика", "Китай", 3000, true);
-        productsArray[2] = new Product("Штаны", "05.04.2021", "Текстильная фабрика", "Франция", 2000, false);
-        productsArray[3] = new Product("Кепка", "02.08.2023", "Головные уборы", "Китай", 700, true);
-        productsArray[4] = new Product("Очки", "02.07.2024", "Оптика", "Россия", 1000, false);
-        productsArray[0].getInfo();
-        productsArray[1].getInfo();
-        productsArray[2].getInfo();
-        productsArray[3].getInfo();
-        productsArray[4].getInfo();
+        /////////// TASK 1
+        Dish dish = new Dish(19);
+        dish.getinfoDish();
 
-        System.out.println("\n\n\n\n\nЗАДАНИЕ 3");
+        Cat[] cats = {new Cat("Том"), new Cat("Барсик"), new Cat("Джерри"), new Cat("Барсик2")};
+        for (int i = 0; i < cats.length; i++) {
+            cats[i].getInfo();
+            cats[i].eat(dish, 5);
+        }
 
-        Park.Attraction attraction = new Park().new Attraction("Солнышко", "10:00-22:00", 750);
-        attraction.getInfoAboutAttraction();
+        dish.addFood(50);
 
+        cats[1].run(25);
+
+        Dog dog = new Dog("Дружок");
+        dog.getInfo();
+        dog.run(-1);
+
+        Animal.getCountAnimals();
+
+        /////////// TASK 2
+        Circle circle = new Circle(5, "red", "black");
+        circle.getInfoTheFigure();
+
+        Rectangle rectangle = new Rectangle(2, 3, "white", "blue");
+        rectangle.getInfoTheFigure();
+
+        Triangle triangle = new Triangle(5, 3, 5, "pink", "yellow");
+        triangle.getInfoTheFigure();
     }
 }
