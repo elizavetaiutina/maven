@@ -1,38 +1,54 @@
 package org.example;
-//import java.util.Arrays;
+
+import java.util.Arrays;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Main {
     public static void main(String args[]) {
-        /////////// TASK 1
-        Dish dish = new Dish(19);
-        dish.getinfoDish();
-
-        Cat[] cats = {new Cat("Том"), new Cat("Барсик"), new Cat("Джерри"), new Cat("Барсик2")};
-        for (int i = 0; i < cats.length; i++) {
-            cats[i].getInfo();
-            cats[i].eat(dish, 5);
+        String[][] array = new String[][]{{"1", "2", "3", "4"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}};
+        try {
+            try {
+                System.out.println("\nЗАДАНИЕ 1-3");
+                check(array);
+                System.out.println("\nЗАДАНИЕ 4");
+                checkIndexOutOfBounds(array);
+                System.out.println("Двумерный массив имеет размер 4х4");
+            } catch (MyArraySizeException e) {
+                System.out.println("Массив имеет другой размер !");
+            }
+        } catch (MyArrayDataException e) {
+            System.out.println("В ячейке " + "[" + e.i + "]" + "[" + e.j + "]" + " лежат неверные данные");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Попытка доступа к массиву по недопустимому индексу ! " + e.getMessage());
         }
+    }
 
-        dish.addFood(50);
+    public static void check(String[][] arr) throws MyArraySizeException, MyArrayDataException {
+        if (arr.length != 4) {
+            throw new MyArraySizeException();
+        }
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].length != 4) {
+                throw new MyArraySizeException();
+            }
+            for (int j = 0; j < arr.length; j++) {
+                try {
+                    sum += Integer.parseInt(arr[i][j]);
+                } catch (NumberFormatException e) {
+                    throw new MyArrayDataException(i, j);
+                }
+            }
+        }
+        System.out.println("Сумма значений в ячейках массива = " + sum);
+    }
 
-        cats[1].run(25);
-
-        Dog dog = new Dog("Дружок");
-        dog.getInfo();
-        dog.run(-1);
-
-        Animal.getCountAnimals();
-
-        /////////// TASK 2
-        Circle circle = new Circle(5, "red", "black");
-        circle.getInfoTheFigure();
-
-        Rectangle rectangle = new Rectangle(2, 3, "white", "blue");
-        rectangle.getInfoTheFigure();
-
-        Triangle triangle = new Triangle(5, 3, 5, "pink", "yellow");
-        triangle.getInfoTheFigure();
+    public static void checkIndexOutOfBounds(String[][] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = -1; j < arr.length; j++) {
+                System.out.println(arr[i][j]);
+            }
+        }
     }
 }
