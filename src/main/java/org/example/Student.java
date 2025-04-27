@@ -5,9 +5,9 @@ import java.util.List;
 public class Student {
 
     public String name;
-    public String group;
+    private String group;
     public int course;
-    public List<Integer> assessment;
+    private List<Integer> assessment;
 
     public Student(String name, String group, int course, List<Integer> assessment) {
         this.name = name;

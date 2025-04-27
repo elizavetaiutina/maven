@@ -26,11 +26,6 @@ public class Main {
 
 
         /*
-        System.out.println("\n\n\n\n\nЗАДАНИЕ 2");
-        Set<String> ssss = new HashSet<>();
-        ssss.add("dddd");
-        ssss.add("ddddh");
-        ssss.add("ddddk");
-        System.out.println(ssss.toString());*/
+        System.out.println("\n\n\n\n\nЗАДАНИЕ 2");*/
     }
 }
