@@ -17,16 +17,23 @@ public class Main {
         students.add(student4);
         students.add(student5);
         students.add(student6);
-        System.out.println("Изначальный список студентов: " + students + "\n\n");
+        System.out.println("Изначальный список студентов: " + students + "\n");
 
         Methods.expulsiontStudents(students);
         Methods.switchToNextCourseStudent(students);
         Methods.printStudents(students, 3);
-        System.out.println("\n\nТЕПЕРЬ ТАК : " + students);
+        System.out.println("\nТЕПЕРЬ ТАК : " + students);
 
+        System.out.println("\n\nЗАДАНИЕ 2");
+        Phonebook phonebook = new Phonebook();
 
-        /*
-        System.out.println("\n\n\n\n\nЗАДАНИЕ 2");*/
+        phonebook.addNumberPhone("Иванов", "+7999999999");
+        phonebook.addNumberPhone("Петров", "+7111111111");
+        phonebook.addNumberPhone("Петров", "+7222222222");
 
+        phonebook.getPhoneBook();
+        phonebook.getNumberPhone("Иванов");
+        phonebook.getNumberPhone("Петров");
+        phonebook.getNumberPhone("Иутина");//несуществующая фамилия
     }
 }
