@@ -1,54 +1,39 @@
 package org.example;
 
-import java.util.Arrays;
-
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.*;
 
 public class Main {
     public static void main(String args[]) {
-        String[][] array = new String[][]{{"1", "2", "3", "4"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}, {"1", "2", "3", "4"}};
-        try {
-            try {
-                System.out.println("\nЗАДАНИЕ 1-3");
-                check(array);
-                System.out.println("\nЗАДАНИЕ 4");
-                checkIndexOutOfBounds(array);
-                System.out.println("Двумерный массив имеет размер 4х4");
-            } catch (MyArraySizeException e) {
-                System.out.println("Массив имеет другой размер !");
-            }
-        } catch (MyArrayDataException e) {
-            System.out.println("В ячейке " + "[" + e.i + "]" + "[" + e.j + "]" + " лежат неверные данные");
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Попытка доступа к массиву по недопустимому индексу ! " + e.getMessage());
-        }
-    }
+        Set<Student> students = new HashSet<>();
+        Student studentOne = new Student("Андрей", "E200E", 3, Arrays.asList(3, 4, 5, 4));
+        Student studentTwo = new Student("Петр", "E200E", 3, Arrays.asList(2, 3, 3, 3));
+        Student student3 = new Student("Иван", "E200E", 3, Arrays.asList(5, 5, 5, 5));
+        Student student4 = new Student("Алексей", "E200E", 1, Arrays.asList(2, 2, 2, 2));
+        Student student5 = new Student("Павел", "E200E", 2, Arrays.asList(2, 2, 2, 2));
+        Student student6 = new Student("Максим", "E200E", 2, Arrays.asList(3, 4, 3, 3));
+        students.add(studentOne);
+        students.add(studentTwo);
+        students.add(student3);
+        students.add(student4);
+        students.add(student5);
+        students.add(student6);
+        System.out.println("Изначальный список студентов: " + students + "\n");
 
-    public static void check(String[][] arr) throws MyArraySizeException, MyArrayDataException {
-        if (arr.length != 4) {
-            throw new MyArraySizeException();
-        }
-        int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i].length != 4) {
-                throw new MyArraySizeException();
-            }
-            for (int j = 0; j < arr.length; j++) {
-                try {
-                    sum += Integer.parseInt(arr[i][j]);
-                } catch (NumberFormatException e) {
-                    throw new MyArrayDataException(i, j);
-                }
-            }
-        }
-        System.out.println("Сумма значений в ячейках массива = " + sum);
-    }
+        Methods.expulsiontStudents(students);
+        Methods.switchToNextCourseStudent(students);
+        Methods.printStudents(students, 3);
+        System.out.println("\nТЕПЕРЬ ТАК : " + students);
 
-    public static void checkIndexOutOfBounds(String[][] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = -1; j < arr.length; j++) {
-                System.out.println(arr[i][j]);
-            }
-        }
+        System.out.println("\n\nЗАДАНИЕ 2");
+        Phonebook phonebook = new Phonebook();
+
+        phonebook.addNumberPhone("Иванов", "+7999999999");
+        phonebook.addNumberPhone("Петров", "+7111111111");
+        phonebook.addNumberPhone("Петров", "+7222222222");
+
+        phonebook.getPhoneBook();
+        phonebook.getNumberPhone("Иванов");
+        phonebook.getNumberPhone("Петров");
+        phonebook.getNumberPhone("Иутина");//несуществующая фамилия
     }
 }
