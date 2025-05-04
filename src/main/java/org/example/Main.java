@@ -6,6 +6,7 @@ public class Main {
 
     public static int factorial(int a) {
         int b = 1;
+
         for (int i = 1; i <= a; i++) {
             b *= i;
         }
