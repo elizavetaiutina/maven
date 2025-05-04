@@ -1,36 +1,63 @@
-import org.example.ArithmeticOperations;
-import org.example.Main;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
-public class Test {
-    @DisplayName("Факториал")
-    @org.junit.jupiter.api.Test
-    void testFactorial() {
-        Assertions.assertEquals(120, Main.factorial(5));
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+class ChromeCreateTest {
+
+    static WebDriver driver = WebDriverManager.chromedriver().create();
+
+    @BeforeAll
+    static void setup() {
+        driver.get("https://www.mts.by");
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
-    @DisplayName("Площадь треугольника")
-    @org.junit.jupiter.api.Test
-    void testSquare() {
-        Assertions.assertEquals(6, Main.squareTriangle(4, 3, 5));
+    @AfterAll
+    static void teardown() {
+
     }
 
-    @DisplayName("Арифметические операции")
-    @org.junit.jupiter.api.Test
-    void testArithmeticOperations() {
-        Assertions.assertEquals(6, ArithmeticOperations.sum(4, 2));
-        Assertions.assertEquals(2, ArithmeticOperations.subtraction(4, 2));
-        Assertions.assertEquals(8, ArithmeticOperations.multiplication(4, 2));
-        Assertions.assertEquals(2, ArithmeticOperations.division(4, 2));
+    @DisplayName("Проверка названия блока")
+    @Test
+    void testNameBlock() {
+        Assertions.assertTrue(driver.findElement(By.className("pay")).getText().contains("Онлайн пополнение\nбез комиссии"));
     }
 
-    @DisplayName("Арифметические операции")
-    @org.junit.jupiter.api.Test
-    void testСomparison() {
-        Assertions.assertEquals(">", Main.comparison(4, 3));
-        Assertions.assertEquals("<", Main.comparison(3, 4));
-        Assertions.assertEquals("=", Main.comparison(4, 4));
+    @DisplayName("Проверка наличия логотипов платежных систем")
+    @Test
+    void testLogoPayStickers() {
+        List<WebElement> list = driver.findElements(By.xpath("//div[@class='pay__partners']//img"));
+        Assertions.assertEquals(5, list.size());
+    }
+
+    @DisplayName("Проверка ссылки")
+    @Test
+    void testLink() {
+        driver.findElement(By.linkText("Подробнее о сервисе")).click();
+        String url = driver.getCurrentUrl();
+        Assertions.assertTrue(url.contains("poryadok-oplaty-i-bezopasnost-internet-platezhey"));
+        WebDriver.Navigation navigate = driver.navigate();
+        navigate.back();
+    }
+
+    @DisplayName("Проверка кнопки пополнения")
+    @Test
+    void testButton() {
+        WebElement phone = driver.findElement(By.id("connection-phone"));
+        phone.sendKeys("297777777");
+
+        WebElement sumAdd = driver.findElement(By.id("connection-sum"));
+        sumAdd.sendKeys("1000");
+
+        WebElement buttonAdd = driver.findElement(By.xpath("//button[@class='button button__default '][1]"));
+        buttonAdd.click();
+
+        Assertions.assertTrue(driver.findElement(By.className("bepaid-app")).isEnabled());
     }
 }
-
