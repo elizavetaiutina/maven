@@ -55,7 +55,7 @@ class ChromeCreateTest {
         WebElement sumAdd = driver.findElement(By.id("connection-sum"));
         sumAdd.sendKeys("1000");
 
-        WebElement buttonAdd = driver.findElement(By.xpath("//button[@class='button button__default '][1]"));
+        WebElement buttonAdd = driver.findElement(By.xpath("//form[@id='pay-connection']/button"));
         buttonAdd.click();
 
         Assertions.assertTrue(driver.findElement(By.className("bepaid-app")).isEnabled());
