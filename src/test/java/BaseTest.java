@@ -17,66 +17,65 @@ class BaseTest {
         formOnlinePay = new FormOnlinePay(driver);
     }
 
-    @DisplayName("Проверка названия блока")
-    @Test
-    public void testNameBlock() {
-        //mainTest.getTitleBlock();
-        System.out.println(formOnlinePay.getTitleBlock());
-        Assertions.assertEquals("Онлайн пополнение\nбез комиссии", formOnlinePay.getTitleBlock());
-    }
+        @DisplayName("Проверка названия блока")
+        @Test
+        public void testNameBlock() {
+            System.out.println(formOnlinePay.getTitleBlock());
+            Assertions.assertEquals("Онлайн пополнение\nбез комиссии", formOnlinePay.getTitleBlock());
+        }
 
-    @DisplayName("Проверка наличия логотипов платежных систем")
-    @Test
-    void testLogoPayStickers() {
-        Assertions.assertEquals(5, formOnlinePay.getSizeOfListLogoPayStickers());
-    }
+        @DisplayName("Проверка наличия логотипов платежных систем")
+        @Test
+        void testLogoPayStickers() {
+            Assertions.assertEquals(5, formOnlinePay.getSizeOfListLogoPayStickers());
+        }
 
-    @DisplayName("Проверка работы ссылки")
-    @Test
-    void testLinkAboutService() {
-        String url = formOnlinePay.checkLinkAboutService();
-        Assertions.assertTrue(url.contains("poryadok-oplaty-i-bezopasnost-internet-platezhey"));
-        //Assertions.assertEquals("https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/", url);
-        WebDriver.Navigation navigate = driver.navigate();
-        navigate.back();
-    }
+        @DisplayName("Проверка работы ссылки")
+        @Test
+        void testLinkAboutService() {
+            String url = formOnlinePay.checkLinkAboutService();
+            Assertions.assertTrue(url.contains("poryadok-oplaty-i-bezopasnost-internet-platezhey"));
+            //Assertions.assertEquals("https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/", url);
+            WebDriver.Navigation navigate = driver.navigate();
+            navigate.back();
+        }
 
-    @DisplayName("Проверка кнопки пополнения")
-    @Test
-    void testButton() {
-        formOnlinePay.checkOfButton();
-        Assertions.assertTrue(driver.findElement(By.className("bepaid-app")).isEnabled());
-    }
+        @DisplayName("Проверка кнопки пополнения")
+        @Test
+        void testButton() {
+            formOnlinePay.checkOfButton();
+            Assertions.assertTrue(driver.findElement(By.className("bepaid-app")).isEnabled());
+        }
 
-    @DisplayName("Проверка placeholder полей ввода вкладки 'Услуги связи'")
-    @Test
-    void testPlaceholderOfInputCommunicationServices() {
-        Assertions.assertEquals("Номер телефона", formOnlinePay.getPlaceHolder("connection-phone"));
-        Assertions.assertEquals("Сумма", formOnlinePay.getPlaceHolder("connection-sum"));
-        Assertions.assertEquals("E-mail для отправки чека", formOnlinePay.getPlaceHolder("connection-email"));
-    }
+        @DisplayName("Проверка placeholder полей ввода вкладки 'Услуги связи'")
+        @Test
+        void testPlaceholderOfInputCommunicationServices() {
+            Assertions.assertEquals("Номер телефона", formOnlinePay.getPlaceHolder("connection-phone"));
+            Assertions.assertEquals("Сумма", formOnlinePay.getPlaceHolder("connection-sum"));
+            Assertions.assertEquals("E-mail для отправки чека", formOnlinePay.getPlaceHolder("connection-email"));
+        }
 
-    @DisplayName("Проверка placeholder полей ввода вкладки 'Домашний интернет'")
-    @Test
-    void testPlaceholderOfInputHomeInternetConnection() {
-        Assertions.assertEquals("Номер абонента", formOnlinePay.getPlaceHolder("internet-phone"));
-        Assertions.assertEquals("Сумма", formOnlinePay.getPlaceHolder("internet-sum"));
-        Assertions.assertEquals("E-mail для отправки чека", formOnlinePay.getPlaceHolder("internet-email"));
-    }
+        @DisplayName("Проверка placeholder полей ввода вкладки 'Домашний интернет'")
+        @Test
+        void testPlaceholderOfInputHomeInternetConnection() {
+            Assertions.assertEquals("Номер абонента", formOnlinePay.getPlaceHolder("internet-phone"));
+            Assertions.assertEquals("Сумма", formOnlinePay.getPlaceHolder("internet-sum"));
+            Assertions.assertEquals("E-mail для отправки чека", formOnlinePay.getPlaceHolder("internet-email"));
+        }
 
-    @DisplayName("Проверка placeholder полей ввода вкладки 'Рассрочка'")
-    @Test
-    void testPlaceholderOfInputInstallment() {
-        Assertions.assertEquals("Номер счета на 44", formOnlinePay.getPlaceHolder("score-instalment"));
-        Assertions.assertEquals("Сумма", formOnlinePay.getPlaceHolder("instalment-sum"));
-        Assertions.assertEquals("E-mail для отправки чека", formOnlinePay.getPlaceHolder("instalment-email"));
-    }
+        @DisplayName("Проверка placeholder полей ввода вкладки 'Рассрочка'")
+        @Test
+        void testPlaceholderOfInputInstallment() {
+            Assertions.assertEquals("Номер счета на 44", formOnlinePay.getPlaceHolder("score-instalment"));
+            Assertions.assertEquals("Сумма", formOnlinePay.getPlaceHolder("instalment-sum"));
+            Assertions.assertEquals("E-mail для отправки чека", formOnlinePay.getPlaceHolder("instalment-email"));
+        }
 
-    @DisplayName("Проверка placeholder полей ввода вкладки 'Задолженность'")
-    @Test
-    void testPlaceholderOfInputArrears() {
-        Assertions.assertEquals("Номер счета на 2073", formOnlinePay.getPlaceHolder("score-arrears"));
-        Assertions.assertEquals("Сумма", formOnlinePay.getPlaceHolder("arrears-sum"));
-        Assertions.assertEquals("E-mail для отправки чека", formOnlinePay.getPlaceHolder("arrears-email"));
-    }
+        @DisplayName("Проверка placeholder полей ввода вкладки 'Задолженность'")
+        @Test
+        void testPlaceholderOfInputArrears() {
+            Assertions.assertEquals("Номер счета на 2073", formOnlinePay.getPlaceHolder("score-arrears"));
+            Assertions.assertEquals("Сумма", formOnlinePay.getPlaceHolder("arrears-sum"));
+            Assertions.assertEquals("E-mail для отправки чека", formOnlinePay.getPlaceHolder("arrears-email"));
+        }
 }

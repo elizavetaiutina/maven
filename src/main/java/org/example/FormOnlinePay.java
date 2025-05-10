@@ -32,7 +32,7 @@ public class FormOnlinePay {
         phone.sendKeys("297777777");
 
         WebElement sumAdd = driver.findElement(By.id("connection-sum"));
-        sumAdd.sendKeys("1000");
+        sumAdd.sendKeys("100");
 
         WebElement buttonAdd = driver.findElement(By.xpath("//form[@id='pay-connection']/button"));
         buttonAdd.click();
