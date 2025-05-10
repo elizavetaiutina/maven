@@ -47,4 +47,36 @@ class BaseTest {
         formOnlinePay.checkOfButton();
         Assertions.assertTrue(driver.findElement(By.className("bepaid-app")).isEnabled());
     }
+
+    @DisplayName("Проверка placeholder полей ввода вкладки 'Услуги связи'")
+    @Test
+    void testPlaceholderOfInputCommunicationServices() {
+        Assertions.assertEquals("Номер телефона", formOnlinePay.getPlaceHolder("connection-phone"));
+        Assertions.assertEquals("Сумма", formOnlinePay.getPlaceHolder("connection-sum"));
+        Assertions.assertEquals("E-mail для отправки чека", formOnlinePay.getPlaceHolder("connection-email"));
+    }
+
+    @DisplayName("Проверка placeholder полей ввода вкладки 'Домашний интернет'")
+    @Test
+    void testPlaceholderOfInputHomeInternetConnection() {
+        Assertions.assertEquals("Номер абонента", formOnlinePay.getPlaceHolder("internet-phone"));
+        Assertions.assertEquals("Сумма", formOnlinePay.getPlaceHolder("internet-sum"));
+        Assertions.assertEquals("E-mail для отправки чека", formOnlinePay.getPlaceHolder("internet-email"));
+    }
+
+    @DisplayName("Проверка placeholder полей ввода вкладки 'Рассрочка'")
+    @Test
+    void testPlaceholderOfInputInstallment() {
+        Assertions.assertEquals("Номер счета на 44", formOnlinePay.getPlaceHolder("score-instalment"));
+        Assertions.assertEquals("Сумма", formOnlinePay.getPlaceHolder("instalment-sum"));
+        Assertions.assertEquals("E-mail для отправки чека", formOnlinePay.getPlaceHolder("instalment-email"));
+    }
+
+    @DisplayName("Проверка placeholder полей ввода вкладки 'Задолженность'")
+    @Test
+    void testPlaceholderOfInputArrears() {
+        Assertions.assertEquals("Номер счета на 2073", formOnlinePay.getPlaceHolder("score-arrears"));
+        Assertions.assertEquals("Сумма", formOnlinePay.getPlaceHolder("arrears-sum"));
+        Assertions.assertEquals("E-mail для отправки чека", formOnlinePay.getPlaceHolder("arrears-email"));
+    }
 }

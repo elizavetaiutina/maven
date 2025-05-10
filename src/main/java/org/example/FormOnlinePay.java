@@ -37,4 +37,8 @@ public class FormOnlinePay {
         WebElement buttonAdd = driver.findElement(By.xpath("//form[@id='pay-connection']/button"));
         buttonAdd.click();
     }
+
+    public String getPlaceHolder(String id) {
+        return driver.findElement(By.id(id)).getAttribute("placeholder");
+    }
 }
