@@ -6,10 +6,10 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class MainTest {
+public class FormOnlinePay {
     WebDriver driver;
 
-    public MainTest(WebDriver driver) {
+    public FormOnlinePay(WebDriver driver) {
         this.driver = driver;
     }
 
