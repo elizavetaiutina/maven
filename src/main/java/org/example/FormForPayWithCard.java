@@ -1,11 +1,13 @@
 package org.example;
 
+import io.qameta.allure.Attachment;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
+import java.util.logging.ErrorManager;
 
 public class FormForPayWithCard extends FormOnlinePay {
     public FormForPayWithCard(WebDriver driver) {
@@ -21,6 +23,8 @@ public class FormForPayWithCard extends FormOnlinePay {
     private By placeholderNameCardholder = By.xpath("//label[@class = 'ng-tns-c2312288139-3 ng-star-inserted']");
     private By iconPayStickers = By.xpath("//img[@class='ng-tns-c891095944-0 ng-star-inserted']");
     private By buttonPayWithSum = By.xpath("//button[@class = 'colored disabled']");
+
+
 
     public boolean isDisplayedFrame() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(iframe)).isDisplayed();
